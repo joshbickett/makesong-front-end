@@ -5,6 +5,18 @@ const Home = () => {
   return (
     <Container>
       <NavigationMenu />
+      <AnimationContainer>COMING SOON</AnimationContainer>
+      <Footer>
+        <div>Copyright 2022</div>
+        <Attribution>
+          <a
+            href="https://www.flaticon.com/free-icons/music"
+            title="music icons"
+          >
+            Music icons created by Freepik - Flaticon
+          </a>
+        </Attribution>
+      </Footer>
     </Container>
   );
 };
@@ -17,4 +29,29 @@ const Container = styled.div`
   font-family: courier prime, monospace;
   background-color: black;
   color: white;
+`;
+
+const AnimationContainer = styled.div`
+  margin: 0;
+  font-size: 30px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+`;
+
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  color: white;
+`;
+
+const Attribution = styled.div`
+  float: left;
+  font-size: 10px;
+  margin: 10px;
 `;
