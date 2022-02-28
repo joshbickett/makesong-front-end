@@ -5,31 +5,34 @@ const NavigationMenu = () => {
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
   // https://medium.com/geekculture/6-top-popular-react-js-animation-libraries-in-2021-e6ea75bb6fcd
   return (
-    <Container>
+    <div>
       <Brand>
         <Icon src={MusicIcon} />
         <Header>makesong.ai</Header>
       </Brand>
-      <NavigationItem>The Technology</NavigationItem>
-      <NavigationItem>Join waitlist</NavigationItem>
-      <NavigationItem>The App</NavigationItem>
-    </Container>
+      <NavigationContainer>
+        <NavigationItem>The Technology</NavigationItem>
+        <NavigationItem>Join waitlist</NavigationItem>
+        <NavigationItem>The App</NavigationItem>
+      </NavigationContainer>
+    </div>
   );
 };
 
 export default NavigationMenu;
 
-const Container = styled.div`
-  margin: 0;
-  width: 100%;
-  min-height: 20px;
-  border-bottom: 1px solid white;
+const NavigationContainer = styled.div`
+  width: 875px;
+
+  float: right;
 `;
 
 const Brand = styled.div`
   font-size: 35px;
-  width: 400px;
-  margin: 0 auto;
+  width: 350px;
+
+  margin: 0;
+  float: left;
 `;
 
 const Header = styled.div`
@@ -40,9 +43,10 @@ const Header = styled.div`
 `;
 
 const NavigationItem = styled.div`
-  font-size: 30px;
+  font-size: 25px;
   border: 1px solid white;
-  width: 350px;
+  line-height: 70px;
+  width: 275px;
   float: right;
   &:hover {
     background-color: #f0c;
@@ -57,6 +61,6 @@ const NavigationItem = styled.div`
 const Icon = styled.img`
   width: 30px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 15px;
   display: inline-block;
 `;
