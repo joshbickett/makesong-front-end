@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import MusicIcon from "../assets/musical-note.png";
+import "../App.css";
 
 const NavigationMenu = () => {
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
   // https://medium.com/geekculture/6-top-popular-react-js-animation-libraries-in-2021-e6ea75bb6fcd
+  // https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf
   return (
     <div>
       <Brand>
@@ -45,8 +47,11 @@ const Header = styled.div`
 const NavigationItem = styled.div`
   font-size: 25px;
   border: 1px solid white;
-  line-height: 70px;
-  width: 275px;
+  background-color: white;
+  margin: 10px;
+  color: black;
+  line-height: 50px;
+  width: 250px;
   float: right;
   &:hover {
     background-color: #f0c;

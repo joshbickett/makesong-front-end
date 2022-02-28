@@ -51,7 +51,6 @@ const Footer = styled.div`
 `;
 
 const Attribution = styled.div`
-  float: left;
   font-size: 10px;
   margin: 10px;
 `;
