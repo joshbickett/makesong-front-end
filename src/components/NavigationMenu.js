@@ -4,8 +4,6 @@ import "../App.css";
 
 const NavigationMenu = () => {
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
-  // https://medium.com/geekculture/6-top-popular-react-js-animation-libraries-in-2021-e6ea75bb6fcd
-  // https://medium.com/hackernoon/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf
   return (
     <div>
       <Brand>
@@ -15,7 +13,7 @@ const NavigationMenu = () => {
       <NavigationContainer>
         <NavigationItem>The Technology</NavigationItem>
         <NavigationItem>Join waitlist</NavigationItem>
-        <NavigationItem>The App</NavigationItem>
+        <NavigationItem>Home</NavigationItem>
       </NavigationContainer>
     </div>
   );

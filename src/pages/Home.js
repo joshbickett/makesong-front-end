@@ -28,8 +28,16 @@ const Home = () => {
           <a
             href="https://www.flaticon.com/free-icons/music"
             title="music icons"
+            style={{ display: "block" }}
           >
             Music icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.videezy.com/music-related/41219-music-equalizer-for-music-party"
+            title="music icons"
+            style={{ display: "block" }}
+          >
+            Video at Videezy available under free license
           </a>
         </Attribution>
       </Footer>
