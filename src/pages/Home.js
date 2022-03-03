@@ -8,7 +8,7 @@ const Home = () => {
     <Container>
       <NavigationMenu />
       <AnimationContainer>
-        <div style={{ marginButton: "-50px" }}>COMING SOON</div>
+        <div style={{ marginBottom: "-40px" }}>COMING SOON</div>
         <video width="400" height="300" autoPlay loop muted>
           <source
             type="video/mp4"
