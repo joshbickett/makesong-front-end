@@ -22,7 +22,7 @@ const NavigationMenu = () => {
 export default NavigationMenu;
 
 const NavigationContainer = styled.div`
-  width: 75vw;
+  width: 66vw;
 
   float: right;
 `;
