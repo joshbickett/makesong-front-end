@@ -2,19 +2,14 @@ import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
 
 const Home = () => {
-  return (
+  // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
+  //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
+  https: return (
     <Container>
       <NavigationMenu />
       <AnimationContainer>
-        <div style={{ margin: "-50px" }}>COMING SOON</div>
-        <video
-          style={{
-            height: "400px",
-            width: "400px",
-          }}
-          autoPlay
-          loop
-        >
+        <div style={{ marginButton: "-50px" }}>COMING SOON</div>
+        <video width="400" height="300" autoPlay loop muted>
           <source
             type="video/mp4"
             src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
@@ -60,7 +55,7 @@ const AnimationContainer = styled.div`
   font-size: 30px;
   position: absolute;
   width: 100%;
-  top: 50%;
+  top: 60%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 `;
