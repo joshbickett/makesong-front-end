@@ -5,7 +5,23 @@ const Home = () => {
   return (
     <Container>
       <NavigationMenu />
-      <AnimationContainer>COMING SOON</AnimationContainer>
+      <AnimationContainer>
+        <div style={{ margin: "-50px" }}>COMING SOON</div>
+        <video
+          style={{
+            height: "400px",
+            width: "400px",
+          }}
+          autoPlay
+          loop
+        >
+          <source
+            type="video/mp4"
+            src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
+          />
+        </video>
+      </AnimationContainer>
+
       <Footer>
         <div>Copyright 2022</div>
         <Attribution>
