@@ -22,7 +22,7 @@ const NavigationMenu = ({ currentPage }) => {
 
   // const [pages, setPages] = useState();
   return (
-    <div>
+    <div style={{ width: "100%", height: "75px" }}>
       <Brand>
         <Icon src={MusicIcon} />
         <Header>makesong.ai</Header>

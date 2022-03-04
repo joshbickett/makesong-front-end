@@ -8,8 +8,15 @@ const Home = () => {
     <div>
       <Container>
         <NavigationMenu currentPage={"Home"} />
+        <ContentContainer>
+          <Title>Make a song in a few minutes using AI</Title>
+          <div>Sign up below to be added to the waitlist</div>
+          <WaitlistContainer>
+            <WaitlistTextarea autofocus placeholder="Your email address" />
+            <Button>JOIN WAITLIST</Button>
+          </WaitlistContainer>
+        </ContentContainer>
         <AnimationContainer>
-          <div style={{ marginBottom: "-40px" }}>COMING SOON</div>
           <video width="400" height="300" autoPlay loop muted>
             <source
               type="video/mp4"
@@ -53,13 +60,7 @@ const Container = styled.div`
 `;
 
 const AnimationContainer = styled.div`
-  margin: 0;
-  font-size: 30px;
-  position: absolute;
-  width: 100%;
-  top: 60%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  padding: 10px;
 `;
 
 const Footer = styled.div`
@@ -74,4 +75,55 @@ const Footer = styled.div`
 const Attribution = styled.div`
   font-size: 10px;
   margin: 10px;
+`;
+
+const ContentContainer = styled.div`
+  display: block;
+  padding: 5px;
+  margin-top: 80px;
+`;
+
+const Title = styled.h2`
+  display: block;
+  padding: 5px;
+`;
+
+const WaitlistTextarea = styled.textarea`
+  margin: 10px;
+  resize: none;
+  border-radius: 5px;
+  background-color: #373737;
+  margin-top: 20px;
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+  height: 20px;
+  width: 250px;
+  cursor: text;
+  text-align: center;
+`;
+
+const Button = styled.button`
+  height: 40px;
+  width: 175px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 0 auto;
+  border: 1px solid white;
+  font-weight: bold;
+  display: block;
+  &:hover {
+    background-color: #f0c;
+    color: #fff;
+  }
+  &:active {
+    background-color: #03f;
+    color: #f90;
+  }
+`;
+
+const WaitlistContainer = styled.div`
+  padding: 0;
+  width: 500px;
+  margin: 0 auto;
 `;
