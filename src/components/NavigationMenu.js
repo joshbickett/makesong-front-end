@@ -1,9 +1,15 @@
 import styled from "@emotion/styled";
 import MusicIcon from "../assets/musical-note.png";
+import React, { useState } from "react";
 import "../App.css";
 
-const NavigationMenu = () => {
+const NavigationMenu = ({ currentPage }) => {
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
+  const [pages, setPages] = useState([
+    "The Technology",
+    "Join Waitlist",
+    "Home",
+  ]);
   return (
     <div>
       <Brand>
@@ -11,9 +17,17 @@ const NavigationMenu = () => {
         <Header>makesong.ai</Header>
       </Brand>
       <NavigationContainer>
-        <NavigationItem>The Technology</NavigationItem>
-        <NavigationItem>Join waitlist</NavigationItem>
-        <NavigationItem>Home</NavigationItem>
+        {pages.map((page) => (
+          <div>
+            {currentPage === page && (
+              <CurrentNavigationItem>{page}</CurrentNavigationItem>
+            )}
+            {currentPage !== page && <NavigationItem>{page}</NavigationItem>}
+          </div>
+        ))}
+
+        {/* <NavigationItem>Join waitlist</NavigationItem>
+        <CurrentNavigationItem>Home</CurrentNavigationItem> */}
       </NavigationContainer>
     </div>
   );
@@ -51,6 +65,7 @@ const NavigationItem = styled.div`
   line-height: 50px;
   width: 250px;
   float: right;
+  cursor: pointer;
   &:hover {
     background-color: #f0c;
     color: #fff;
@@ -59,6 +74,17 @@ const NavigationItem = styled.div`
     background-color: #03f;
     color: #f90;
   }
+`;
+
+const CurrentNavigationItem = styled.div`
+  font-size: 25px;
+  border: 1px solid white;
+  background-color: back;
+  margin: 10px;
+  color: white;
+  line-height: 50px;
+  width: 250px;
+  float: right;
 `;
 
 const Icon = styled.img`
