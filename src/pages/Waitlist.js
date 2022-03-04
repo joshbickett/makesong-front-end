@@ -7,7 +7,7 @@ const Waitlist = () => {
       <NavigationMenu currentPage={"Join Waitlist"} />
       <AnimationContainer>
         <div style={{ marginBottom: "-40px" }}>Waitlist</div>
-        <video width="400" height="300" autoPlay loop muted>
+        <video width="400" height="300" autoPlay loop muted playsinline>
           <source
             type="video/mp4"
             src="https://static.videezy.com/system/resources/previews/000/041/236/original/84.Music-note-equalizer.mp4"

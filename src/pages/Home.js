@@ -17,7 +17,7 @@ const Home = () => {
           </WaitlistContainer>
         </ContentContainer>
         <AnimationContainer>
-          <video width="400" height="300" autoPlay loop muted>
+          <video width="400" height="300" autoPlay loop muted playsinline>
             <source
               type="video/mp4"
               src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
