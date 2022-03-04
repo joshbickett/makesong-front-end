@@ -10,7 +10,7 @@ const Waitlist = () => {
         <video width="400" height="300" autoPlay loop muted>
           <source
             type="video/mp4"
-            src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
+            src="https://static.videezy.com/system/resources/previews/000/041/236/original/84.Music-note-equalizer.mp4"
           />
         </video>
       </AnimationContainer>
@@ -26,7 +26,7 @@ const Waitlist = () => {
             Music icons created by Freepik - Flaticon
           </a>
           <a
-            href="https://www.videezy.com/music-related/41219-music-equalizer-for-music-party"
+            href="https://www.videezy.com/music-related/"
             title="music icons"
             style={{ display: "block" }}
           >

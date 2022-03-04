@@ -1,20 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Waitlist from "./pages/Waitlist";
 import Home from "./pages/Home";
-import Technology from "./pages/Technology";
+import About from "./pages/About";
 
 ReactDOM.render(
   <BrowserRouter>
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/waitlist" element={<Waitlist />} />
-        <Route path="/technology" element={<Technology />} />
+        {/* <Route path="/waitlist" element={<Waitlist />} /> */}
+        <Route path="/about" element={<About />} />
         <Route
           path="*"
           element={

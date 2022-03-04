@@ -10,8 +10,8 @@ const NavigationMenu = ({ currentPage }) => {
   //   urls: ["/technology", "/waitlist", "/"],
   // ]);
   const pages = [
-    { name: "The Technology", url: "/technology" },
-    { name: "Join Waitlist", url: "/waitlist" },
+    { name: "About", url: "/about" },
+    // { name: "Join Waitlist", url: "/waitlist" },
     { name: "Home", url: "/" },
   ];
 

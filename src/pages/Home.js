@@ -29,7 +29,7 @@ const Home = () => {
               Music icons created by Freepik - Flaticon
             </a>
             <a
-              href="https://www.videezy.com/music-related/41219-music-equalizer-for-music-party"
+              href="https://www.videezy.com/music-related/"
               title="music icons"
               style={{ display: "block" }}
             >
