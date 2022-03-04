@@ -5,11 +5,22 @@ import "../App.css";
 
 const NavigationMenu = ({ currentPage }) => {
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
-  const [pages, setPages] = useState([
-    "The Technology",
-    "Join Waitlist",
-    "Home",
-  ]);
+  // const [pages, setPages] = useState([]
+  //   names: ["The Technology", "Join Waitlist", "Home"],
+  //   urls: ["/technology", "/waitlist", "/"],
+  // ]);
+  const pages = [
+    { name: "The Technology", url: "/technology" },
+    { name: "Join Waitlist", url: "/waitlist" },
+    { name: "Home", url: "/" },
+  ];
+
+  const onNavClick = (url) => {
+    console.log("window.location: ", window.location);
+    window.location.href = window.location.origin + url;
+  };
+
+  // const [pages, setPages] = useState();
   return (
     <div>
       <Brand>
@@ -17,17 +28,21 @@ const NavigationMenu = ({ currentPage }) => {
         <Header>makesong.ai</Header>
       </Brand>
       <NavigationContainer>
-        {pages.map((page) => (
-          <div>
-            {currentPage === page && (
-              <CurrentNavigationItem>{page}</CurrentNavigationItem>
-            )}
-            {currentPage !== page && <NavigationItem>{page}</NavigationItem>}
-          </div>
-        ))}
-
-        {/* <NavigationItem>Join waitlist</NavigationItem>
-        <CurrentNavigationItem>Home</CurrentNavigationItem> */}
+        {pages.map((page) => {
+          if (currentPage === page.name) {
+            return (
+              <CurrentNavigationItem onClick={() => onNavClick(page.url)}>
+                {page.name}
+              </CurrentNavigationItem>
+            );
+          } else {
+            return (
+              <NavigationItem onClick={() => onNavClick(page.url)}>
+                {page.name}
+              </NavigationItem>
+            );
+          }
+        })}
       </NavigationContainer>
     </div>
   );

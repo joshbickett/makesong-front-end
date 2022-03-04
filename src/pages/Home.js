@@ -5,38 +5,40 @@ const Home = () => {
   // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
   return (
-    <Container>
-      <NavigationMenu currentPage={"Home"} />
-      <AnimationContainer>
-        <div style={{ marginBottom: "-40px" }}>COMING SOON</div>
-        <video width="400" height="300" autoPlay loop muted>
-          <source
-            type="video/mp4"
-            src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
-          />
-        </video>
-      </AnimationContainer>
+    <div>
+      <Container>
+        <NavigationMenu currentPage={"Home"} />
+        <AnimationContainer>
+          <div style={{ marginBottom: "-40px" }}>COMING SOON</div>
+          <video width="400" height="300" autoPlay loop muted>
+            <source
+              type="video/mp4"
+              src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
+            />
+          </video>
+        </AnimationContainer>
 
-      <Footer>
-        <div>Copyright 2022</div>
-        <Attribution>
-          <a
-            href="https://www.flaticon.com/free-icons/music"
-            title="music icons"
-            style={{ display: "block" }}
-          >
-            Music icons created by Freepik - Flaticon
-          </a>
-          <a
-            href="https://www.videezy.com/music-related/41219-music-equalizer-for-music-party"
-            title="music icons"
-            style={{ display: "block" }}
-          >
-            Video at Videezy available under free license
-          </a>
-        </Attribution>
-      </Footer>
-    </Container>
+        <Footer>
+          <div>Copyright 2022</div>
+          <Attribution>
+            <a
+              href="https://www.flaticon.com/free-icons/music"
+              title="music icons"
+              style={{ display: "block" }}
+            >
+              Music icons created by Freepik - Flaticon
+            </a>
+            <a
+              href="https://www.videezy.com/music-related/41219-music-equalizer-for-music-party"
+              title="music icons"
+              style={{ display: "block" }}
+            >
+              Video at Videezy available under free license
+            </a>
+          </Attribution>
+        </Footer>
+      </Container>
+    </div>
   );
 };
 
