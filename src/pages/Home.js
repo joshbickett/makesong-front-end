@@ -5,47 +5,44 @@ const Home = () => {
   // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
   return (
-    <div>
-      <Container>
-        <NavigationMenu currentPage={"Home"} />
-        <ContentContainer>
-          <Title>Make a song in a few minutes using AI</Title>
-          <div>Sign up below to be added to the waitlist</div>
-          <WaitlistContainer>
-            <WaitlistTextarea autofocus placeholder="Your email address" />
-            <Button>JOIN WAITLIST</Button>
-          </WaitlistContainer>
-        </ContentContainer>
-        <AnimationContainer>
-          <video width="400" height="300" autoPlay loop muted playsinline>
-            <source
-              type="video/mp4"
-              src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
-            />
-          </video>
-        </AnimationContainer>
+    <Container>
+      <NavigationMenu currentPage={"Home"} />
+      <ContentContainer>
+        <Title>Make a song in a few minutes using AI</Title>
+        <WaitlistContainer>
+          <WaitlistTextarea autofocus placeholder="Your email address" />
+          <Button>JOIN WAITLIST</Button>
+        </WaitlistContainer>
+      </ContentContainer>
+      <AnimationContainer>
+        <video width="400" height="300" autoPlay loop muted playsinline>
+          <source
+            type="video/mp4"
+            src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
+          />
+        </video>
+      </AnimationContainer>
 
-        <Footer>
-          <div>Copyright 2022</div>
-          <Attribution>
-            <a
-              href="https://www.flaticon.com/free-icons/music"
-              title="music icons"
-              style={{ display: "block" }}
-            >
-              Music icons created by Freepik - Flaticon
-            </a>
-            <a
-              href="https://www.videezy.com/music-related/"
-              title="music icons"
-              style={{ display: "block" }}
-            >
-              Video at Videezy available under free license
-            </a>
-          </Attribution>
-        </Footer>
-      </Container>
-    </div>
+      <Footer>
+        <div>Copyright 2022</div>
+        <Attribution>
+          <a
+            href="https://www.flaticon.com/free-icons/music"
+            title="music icons"
+            style={{ display: "block" }}
+          >
+            Music icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.videezy.com/music-related/"
+            title="music icons"
+            style={{ display: "block" }}
+          >
+            Video at Videezy available under free license
+          </a>
+        </Attribution>
+      </Footer>
+    </Container>
   );
 };
 
@@ -53,7 +50,6 @@ export default Home;
 
 const Container = styled.div`
   height: 100vh;
-  width: 100%;
   font-family: courier prime, monospace;
   background-color: black;
   color: white;

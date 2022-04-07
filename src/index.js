@@ -13,7 +13,6 @@ ReactDOM.render(
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        {/* <Route path="/waitlist" element={<Waitlist />} /> */}
         <Route path="/about" element={<About />} />
         <Route
           path="*"

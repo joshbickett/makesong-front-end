@@ -10,9 +10,9 @@ const NavigationMenu = ({ currentPage }) => {
   //   urls: ["/technology", "/waitlist", "/"],
   // ]);
   const pages = [
+    { name: "Home", url: "/" },
     { name: "About", url: "/about" },
     // { name: "Join Waitlist", url: "/waitlist" },
-    { name: "Home", url: "/" },
   ];
 
   const onNavClick = (url) => {
@@ -20,46 +20,56 @@ const NavigationMenu = ({ currentPage }) => {
     window.location.href = window.location.origin + url;
   };
 
-  // const [pages, setPages] = useState();
   return (
-    <div style={{ width: "100%", height: "75px" }}>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-transparent">
+      <div
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </div>
       <Brand>
         <Icon src={MusicIcon} />
         <Header>makesong.ai</Header>
       </Brand>
-      <NavigationContainer>
-        {pages.map((page) => {
-          if (currentPage === page.name) {
-            return (
-              <CurrentNavigationItem onClick={() => onNavClick(page.url)}>
-                {page.name}
-              </CurrentNavigationItem>
-            );
-          } else {
-            return (
-              <NavigationItem onClick={() => onNavClick(page.url)}>
-                {page.name}
-              </NavigationItem>
-            );
-          }
-        })}
-      </NavigationContainer>
-    </div>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          {pages.map((page) => {
+            if (currentPage === page.name) {
+              return (
+                <li class="nav-item" style={{ padding: "5px" }}>
+                  <CurrentNavigationItem onClick={() => onNavClick(page.url)}>
+                    {page.name}
+                  </CurrentNavigationItem>
+                </li>
+              );
+            } else {
+              return (
+                <li class="nav-item" style={{ padding: "5px" }}>
+                  <NavigationItem onClick={() => onNavClick(page.url)}>
+                    {page.name}
+                  </NavigationItem>
+                </li>
+              );
+            }
+          })}
+        </ul>
+      </div>
+    </nav>
   );
 };
 
 export default NavigationMenu;
 
-const NavigationContainer = styled.div`
-  width: 66vw;
-
-  float: right;
-`;
-
 const Brand = styled.div`
   font-size: 35px;
   width: 350px;
-
+  padding: 10px;
   margin: 0;
   float: left;
 `;
@@ -75,11 +85,10 @@ const NavigationItem = styled.div`
   font-size: 25px;
   border: 1px solid white;
   background-color: white;
-  margin: 10px;
+  margin: 10px auto;
   color: black;
   line-height: 50px;
   width: 250px;
-  float: right;
   cursor: pointer;
   &:hover {
     background-color: #f0c;
@@ -94,17 +103,17 @@ const NavigationItem = styled.div`
 const CurrentNavigationItem = styled.div`
   font-size: 25px;
   border: 1px solid white;
-  background-color: back;
-  margin: 10px;
+  background-color: black;
+
+  margin: 10px auto;
   color: white;
   line-height: 50px;
   width: 250px;
-  float: right;
 `;
 
 const Icon = styled.img`
   width: 30px;
   height: 30px;
-  margin-top: 15px;
+  margin-top: 5px;
   display: inline-block;
 `;
