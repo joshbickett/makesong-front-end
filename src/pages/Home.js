@@ -12,8 +12,18 @@ const Home = () => {
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <Title>Make a song using AI</Title>
-            <WaitlistTextarea autofocus placeholder="Your email address" />
-            <Button>JOIN WAITLIST</Button>
+            {/* <WaitlistTextarea autofocus placeholder="Your email address" /> */}
+            <form>
+              <div class="form-group">
+                <WaitlistTextarea
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                />
+              </div>
+              <Button type="submit">JOIN WAITLIST</Button>
+            </form>
+
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
                 <source
@@ -72,7 +82,7 @@ const Title = styled.h2`
   margin-top: 150px;
 `;
 
-const WaitlistTextarea = styled.textarea`
+const WaitlistTextarea = styled.input`
   resize: none;
   border-radius: 5px;
   background-color: #373737;
@@ -85,6 +95,7 @@ const WaitlistTextarea = styled.textarea`
   cursor: text;
   text-align: center;
   margin: 20px;
+  border: 1px solid #373737;
 `;
 
 const Button = styled.button`
@@ -93,7 +104,7 @@ const Button = styled.button`
   font-size: 16px;
   border-radius: 5px;
   margin: 0 auto;
-  border: 1px solid white;
+  border: 0;
   font-weight: bold;
   display: block;
   &:hover {
@@ -103,5 +114,6 @@ const Button = styled.button`
   &:active {
     background-color: #03f;
     color: #f90;
+    border: 0;
   }
 `;

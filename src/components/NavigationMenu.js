@@ -83,7 +83,7 @@ const Header = styled.div`
 
 const NavigationItem = styled.div`
   font-size: 25px;
-  border: 1px solid white;
+
   background-color: white;
   margin: 10px auto;
   color: black;
@@ -102,7 +102,7 @@ const NavigationItem = styled.div`
 
 const CurrentNavigationItem = styled.div`
   font-size: 25px;
-  border: 1px solid white;
+
   background-color: black;
 
   margin: 10px auto;
