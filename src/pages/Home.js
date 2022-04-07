@@ -7,41 +7,46 @@ const Home = () => {
   return (
     <Container>
       <NavigationMenu currentPage={"Home"} />
-      <ContentContainer>
-        <Title>Make a song in a few minutes using AI</Title>
-        <WaitlistContainer>
-          <WaitlistTextarea autofocus placeholder="Your email address" />
-          <Button>JOIN WAITLIST</Button>
-        </WaitlistContainer>
-      </ContentContainer>
-      <AnimationContainer>
-        <video width="400" height="300" autoPlay loop muted playsinline>
-          <source
-            type="video/mp4"
-            src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
-          />
-        </video>
-      </AnimationContainer>
-
-      <Footer>
-        <div>Copyright 2022</div>
-        <Attribution>
-          <a
-            href="https://www.flaticon.com/free-icons/music"
-            title="music icons"
-            style={{ display: "block" }}
-          >
-            Music icons created by Freepik - Flaticon
-          </a>
-          <a
-            href="https://www.videezy.com/music-related/"
-            title="music icons"
-            style={{ display: "block" }}
-          >
-            Video at Videezy available under free license
-          </a>
-        </Attribution>
-      </Footer>
+      <div class="fluid-container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <Title>Make a song using AI</Title>
+            <WaitlistTextarea autofocus placeholder="Your email address" />
+            <Button>JOIN WAITLIST</Button>
+            <AnimationContainer>
+              <video width="400" height="300" autoPlay loop muted playsinline>
+                <source
+                  type="video/mp4"
+                  src="https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4"
+                />
+              </video>
+            </AnimationContainer>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style={{ marginTop: "100px" }}>
+          <div>Copyright 2022</div>
+          <Attribution>
+            <a
+              href="https://www.flaticon.com/free-icons/music"
+              title="music icons"
+              style={{ display: "block" }}
+            >
+              Music icons created by Freepik - Flaticon
+            </a>
+            <a
+              href="https://www.videezy.com/music-related/"
+              title="music icons"
+              style={{ display: "block" }}
+            >
+              Video at Videezy available under free license
+            </a>
+          </Attribution>
+        </div>
+      </div>
     </Container>
   );
 };
@@ -49,7 +54,6 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
-  height: 100vh;
   font-family: courier prime, monospace;
   background-color: black;
   color: white;
@@ -59,44 +63,28 @@ const AnimationContainer = styled.div`
   padding: 10px;
 `;
 
-const Footer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  color: white;
-`;
-
 const Attribution = styled.div`
   font-size: 10px;
   margin: 10px;
 `;
 
-const ContentContainer = styled.div`
-  display: block;
-  padding: 5px;
-  margin-top: 80px;
-`;
-
 const Title = styled.h2`
-  display: block;
-  padding: 5px;
+  margin-top: 150px;
 `;
 
 const WaitlistTextarea = styled.textarea`
-  margin: 10px;
   resize: none;
   border-radius: 5px;
   background-color: #373737;
-  margin-top: 20px;
+  margin-top: 15px;
   color: white;
   padding: 10px 0;
   font-size: 16px;
-  height: 20px;
+  height: 40px;
   width: 250px;
   cursor: text;
   text-align: center;
+  margin: 20px;
 `;
 
 const Button = styled.button`
@@ -116,10 +104,4 @@ const Button = styled.button`
     background-color: #03f;
     color: #f90;
   }
-`;
-
-const WaitlistContainer = styled.div`
-  padding: 0;
-  width: 500px;
-  margin: 0 auto;
 `;
