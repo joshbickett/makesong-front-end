@@ -1,6 +1,6 @@
-export const test = async () => {
+export const saveEmail = async (email) => {
   var formdata = new FormData();
-  formdata.append("test", "abc");
+  formdata.append("email", email);
 
   var request = {
     method: "POST",
@@ -11,8 +11,10 @@ export const test = async () => {
     },
   };
 
-  const result = await fetch("http://127.0.0.1:5000/test", request).then(
-    (response) => response.json()
-  );
+  const result = await fetch("http://127.0.0.1:5000/save_email", request)
+    .then((response) => response.json())
+    .catch((e) => {
+      console.log("there was an error: ", e);
+    });
   return result;
 };

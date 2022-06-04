@@ -39,10 +39,10 @@ const NavigationMenu = ({ currentPage }) => {
       </Brand>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          {pages.map((page) => {
+          {pages.map((page, index) => {
             if (currentPage === page.name) {
               return (
-                <li class="nav-item" style={{ padding: "5px" }}>
+                <li class="nav-item" style={{ padding: "5px" }} key={index}>
                   <CurrentNavigationItem onClick={() => onNavClick(page.url)}>
                     {page.name}
                   </CurrentNavigationItem>
@@ -50,7 +50,7 @@ const NavigationMenu = ({ currentPage }) => {
               );
             } else {
               return (
-                <li class="nav-item" style={{ padding: "5px" }}>
+                <li class="nav-item" style={{ padding: "5px" }} key={index}>
                   <NavigationItem onClick={() => onNavClick(page.url)}>
                     {page.name}
                   </NavigationItem>

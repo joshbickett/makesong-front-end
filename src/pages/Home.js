@@ -1,13 +1,16 @@
 import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
-import { test } from "../api/api";
+import { saveEmail } from "../api/api";
+import { useState } from "react";
 
 const Home = () => {
   // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
 
-  const runTest = async () => {
-    const result = await test();
+  const [email, setEmail] = useState("");
+
+  const save = async () => {
+    const result = await saveEmail(email);
     console.log("result: ", result);
   };
   return (
@@ -18,19 +21,17 @@ const Home = () => {
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <Title>Make a song using AI</Title>
-            {/* <WaitlistTextarea autofocus placeholder="Your email address" /> */}
-            <form>
-              <div class="form-group">
-                <WaitlistTextarea
-                  type="email"
-                  class="form-control"
-                  placeholder="Enter email"
-                />
-              </div>
-              <Button type="submit" onClick={() => runTest()}>
-                JOIN WAITLIST
-              </Button>
-            </form>
+
+            <div class="form-group">
+              <WaitlistTextarea
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <Button onClick={() => save()}>JOIN WAITLIST</Button>
 
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
