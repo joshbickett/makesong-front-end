@@ -11,7 +11,7 @@ export const saveEmail = async (email) => {
     },
   };
 
-  const result = await fetch("http://127.0.0.1:5001/save_email", request)
+  const result = await fetch("http://127.0.0.1:5000/save_email", request)
     .then((response) => response.json())
     .catch((e) => {
       console.log("there was an error: ", e);
