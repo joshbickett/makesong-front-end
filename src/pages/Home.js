@@ -1,9 +1,15 @@
 import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
+import { test } from "../api/api";
 
 const Home = () => {
   // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
+
+  const runTest = async () => {
+    const result = await test();
+    console.log("result: ", result);
+  };
   return (
     <Container>
       <NavigationMenu currentPage={"Home"} />
@@ -21,7 +27,9 @@ const Home = () => {
                   placeholder="Enter email"
                 />
               </div>
-              <Button type="submit">JOIN WAITLIST</Button>
+              <Button type="submit" onClick={() => runTest()}>
+                JOIN WAITLIST
+              </Button>
             </form>
 
             <AnimationContainer>
