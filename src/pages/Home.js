@@ -20,7 +20,7 @@ const Home = () => {
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6">
-            <Title>Make a song using AI</Title>
+            <Title>Make a song using AI!</Title>
 
             <div class="form-group">
               <WaitlistTextarea
