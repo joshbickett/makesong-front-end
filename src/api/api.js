@@ -2,7 +2,7 @@
 // const url = "http://127.0.0.1:5000";
 
 // prod
-const url = "http://35.83.44.211";
+const url = "https://makesong.ai/apis/";
 
 export const saveEmail = async (email) => {
   var formdata = new FormData();
