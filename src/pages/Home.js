@@ -22,16 +22,22 @@ const Home = () => {
           <div class="col-md-6">
             <Title>Make a song using AI!</Title>
 
-            <div class="form-group">
-              <WaitlistTextarea
-                type="email"
-                class="form-control"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <Button onClick={() => save()}>JOIN WAITLIST</Button>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <div class="form-group">
+                <WaitlistTextarea
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <Button onClick={() => save()}>JOIN WAITLIST</Button>
+            </form>
 
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
