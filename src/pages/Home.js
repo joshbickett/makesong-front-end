@@ -8,10 +8,27 @@ const Home = () => {
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
 
   const [email, setEmail] = useState("");
+  const [notEmail, setNotEmail] = useState(false);
+  const [emailSaved, setEmailSaved] = useState(false);
 
   const save = async () => {
-    const result = await saveEmail(email);
-    console.log("result: ", result);
+    // if email is formatted like an email address then save it
+    if (email.includes("@")) {
+      const result = await saveEmail(email);
+      // console.log("result: ", result);
+      if (result.success) {
+        setEmailSaved(true);
+        setNotEmail(false);
+        setTimeout(() => {
+          setEmailSaved(false);
+        }, 4000);
+      }
+    } else {
+      setNotEmail(true);
+      setTimeout(() => {
+        setNotEmail(false);
+      }, 2000);
+    }
   };
   return (
     <Container>
@@ -21,23 +38,42 @@ const Home = () => {
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <Title>Make a song using AI!</Title>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <div class="form-group">
-                <WaitlistTextarea
-                  type="email"
-                  class="form-control"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+            {notEmail && (
+              <div
+                style={{
+                  backgroundColor: "#ffffe7",
+                  border: "1px solid #8a8a00",
+                  color: "#575700",
+                  borderRadius: "5px",
+                }}
+              >
+                Uh, that doesn't look like an email{" "}
               </div>
-              <Button onClick={() => save()}>JOIN WAITLIST</Button>
-            </form>
+            )}
+            {emailSaved && (
+              <div
+                style={{
+                  backgroundColor: "#d8ffd8",
+                  border: "1px solid #009d00",
+                  color: "#006200",
+                  borderRadius: "5px",
+                }}
+              >
+                Your email has been saved! We will notify you when access is
+                available.
+              </div>
+            )}
+
+            <div class="form-group">
+              <WaitlistTextarea
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <Button onClick={() => save()}>JOIN WAITLIST</Button>
 
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
