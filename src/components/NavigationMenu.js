@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 import MusicIcon from "../assets/musical-note.png";
 import React, { useState } from "react";
+import { LogoutButton } from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 import "../App.css";
 
 const NavigationMenu = ({ currentPage }) => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
-  // const [pages, setPages] = useState([]
+  // const [pages, setPages] = useState(p
   //   names: ["The Technology", "Join Waitlist", "Home"],
   //   urls: ["/technology", "/waitlist", "/"],
   // ]);
@@ -40,24 +43,19 @@ const NavigationMenu = ({ currentPage }) => {
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           {pages.map((page, index) => {
-            if (currentPage === page.name) {
-              return (
-                <li class="nav-item" style={{ padding: "5px" }} key={index}>
-                  <CurrentNavigationItem onClick={() => onNavClick(page.url)}>
-                    {page.name}
-                  </CurrentNavigationItem>
-                </li>
-              );
-            } else {
-              return (
-                <li class="nav-item" style={{ padding: "5px" }} key={index}>
-                  <NavigationItem onClick={() => onNavClick(page.url)}>
-                    {page.name}
-                  </NavigationItem>
-                </li>
-              );
-            }
+            return (
+              <li class="nav-item" style={{ padding: "5px" }} key={index}>
+                <NavigationItem onClick={() => onNavClick(page.url)}>
+                  {page.name}
+                </NavigationItem>
+              </li>
+            );
           })}
+          {isAuthenticated && (
+            <li class="nav-item" style={{ padding: "5px" }} key={10}>
+              <LogoutButton />
+            </li>
+          )}
         </ul>
       </div>
     </nav>
