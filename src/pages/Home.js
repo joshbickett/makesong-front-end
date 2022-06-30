@@ -2,6 +2,7 @@ import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
 import { saveEmail } from "../api/api";
 import { useState } from "react";
+import { LoginButton } from "../components/LoginButton";
 
 const Home = () => {
   // https://static.videezy.com/system/resources/previews/000/041/219/original/81.Audio_Visualizer_with_note.mp4
@@ -74,6 +75,7 @@ const Home = () => {
               />
             </div>
             <Button onClick={() => save()}>JOIN WAITLIST</Button>
+            <LoginButton />
 
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
