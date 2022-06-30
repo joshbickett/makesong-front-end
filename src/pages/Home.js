@@ -1,7 +1,7 @@
 import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
 import { saveEmail } from "../api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LoginButton } from "../components/LoginButton";
 
 const Home = () => {
@@ -65,7 +65,7 @@ const Home = () => {
               </div>
             )}
 
-            <div class="form-group">
+            {/* <div class="form-group">
               <WaitlistTextarea
                 type="email"
                 class="form-control"
@@ -74,7 +74,7 @@ const Home = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <Button onClick={() => save()}>JOIN WAITLIST</Button>
+            <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton> */}
             <LoginButton />
 
             <AnimationContainer>
@@ -151,7 +151,7 @@ const WaitlistTextarea = styled.input`
   border: 1px solid #373737;
 `;
 
-const Button = styled.button`
+const StyledButton = styled.button`
   height: 40px;
   width: 175px;
   font-size: 16px;
