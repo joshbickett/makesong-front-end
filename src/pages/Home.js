@@ -65,7 +65,7 @@ const Home = () => {
               </div>
             )}
 
-            {/* <div class="form-group">
+            <div class="form-group">
               <WaitlistTextarea
                 type="email"
                 class="form-control"
@@ -74,8 +74,8 @@ const Home = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton> */}
-            <LoginButton />
+            <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton>
+            {/* <LoginButton /> */}
 
             <AnimationContainer>
               <video width="400" height="300" autoPlay loop muted playsinline>
