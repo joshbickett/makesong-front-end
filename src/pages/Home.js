@@ -1,6 +1,6 @@
 import NavigationMenu from "../components/NavigationMenu";
 import styled from "@emotion/styled";
-import { saveEmail } from "../api/api";
+import { saveEmail, make } from "../api/api";
 import { useEffect, useState } from "react";
 import { LoginButton } from "../components/LoginButton";
 
@@ -9,27 +9,50 @@ const Home = () => {
   //stackoverflow.com/questions/49822790/html5-video-autoplay-not-working
 
   const [email, setEmail] = useState("");
-  const [notEmail, setNotEmail] = useState(false);
+  const [code, setCode] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [emailSaved, setEmailSaved] = useState(false);
+  const [showAccessView, setShowAccessView] = useState(false);
+  const [showWaitlistView, setShowWaitlistView] = useState(false);
+  const [accessGranted, setAccessGranted] = useState(false);
 
   const save = async () => {
     // if email is formatted like an email address then save it
     if (email.includes("@")) {
       const result = await saveEmail(email);
       // console.log("result: ", result);
-      if (result.success) {
+      if (result?.success) {
         setEmailSaved(true);
-        setNotEmail(false);
+        setErrorMessage("");
+
         setTimeout(() => {
           setEmailSaved(false);
         }, 4000);
       }
     } else {
-      setNotEmail(true);
+      setErrorMessage("Uh, that doesn't look like an email");
       setTimeout(() => {
-        setNotEmail(false);
+        setErrorMessage("");
       }, 2000);
     }
+  };
+
+  const checkCode = () => {
+    console.log("checkaccess");
+    if (code === "BuildThingsAndHaveFun123") {
+      console.log("grant access");
+      setAccessGranted(true);
+    } else {
+      setErrorMessage("Uh, that access code looks like it isn't valid");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    }
+  };
+
+  const makeSong = async () => {
+    const results = await make();
+    console.log("results from making song: ", results);
   };
   return (
     <Container>
@@ -39,7 +62,8 @@ const Home = () => {
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <Title>Make a song using AI!</Title>
-            {notEmail && (
+
+            {!!errorMessage && (
               <div
                 style={{
                   backgroundColor: "#ffffe7",
@@ -48,7 +72,7 @@ const Home = () => {
                   borderRadius: "5px",
                 }}
               >
-                Uh, that doesn't look like an email{" "}
+                {errorMessage}
               </div>
             )}
             {emailSaved && (
@@ -65,16 +89,77 @@ const Home = () => {
               </div>
             )}
 
-            <div class="form-group">
-              <WaitlistTextarea
-                type="email"
-                class="form-control"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton>
+            {showWaitlistView && !emailSaved && (
+              <div class="form-group">
+                <WaitlistInput
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            )}
+
+            {showAccessView && !accessGranted && (
+              <div class="form-group">
+                <AccessInput
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter code"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                />
+              </div>
+            )}
+
+            {!showAccessView && !showWaitlistView && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <StyledButton
+                  style={{ margin: "10px" }}
+                  onClick={() => setShowWaitlistView(true)}
+                >
+                  JOIN WAITLIST
+                </StyledButton>
+                <StyledButton
+                  style={{ margin: "10px" }}
+                  onClick={() => setShowAccessView(true)}
+                >
+                  ENTER ACCESS CODE
+                </StyledButton>
+              </div>
+            )}
+            {showWaitlistView && !emailSaved && (
+              <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton>
+            )}
+
+            {showAccessView && !accessGranted && (
+              <StyledButton onClick={() => checkCode()}>
+                ENTER ACCESS CODE
+              </StyledButton>
+            )}
+
+            {accessGranted && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <div>Write your lyrics below!</div>
+                <LyricTextarea></LyricTextarea>
+                <StyledButton onClick={() => makeSong()}>
+                  MAKE SONG
+                </StyledButton>
+              </div>
+            )}
             {/* <LoginButton /> */}
 
             <AnimationContainer>
@@ -135,7 +220,34 @@ const Title = styled.h2`
   margin-top: 150px;
 `;
 
-const WaitlistTextarea = styled.input`
+const WaitlistInput = styled.input`
+  resize: none;
+  border-radius: 5px;
+  background-color: #373737;
+  margin-top: 15px;
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+  height: 40px;
+  width: 250px;
+  cursor: text;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid #373737;
+`;
+
+const LyricTextarea = styled.textarea`
+  border-radius: 5px;
+  margin: 10px;
+  resize: none;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  background-color: #373737;
+  color: white;
+`;
+
+const AccessInput = styled.input`
   resize: none;
   border-radius: 5px;
   background-color: #373737;
@@ -153,13 +265,12 @@ const WaitlistTextarea = styled.input`
 
 const StyledButton = styled.button`
   height: 40px;
-  width: 175px;
+  width: 200px;
   font-size: 16px;
   border-radius: 5px;
-  margin: 0 auto;
+
   border: 0;
   font-weight: bold;
-  display: block;
   &:hover {
     background-color: #f0c;
     color: #fff;

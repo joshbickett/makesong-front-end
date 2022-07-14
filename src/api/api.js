@@ -24,3 +24,23 @@ export const saveEmail = async (email) => {
     });
   return result;
 };
+
+export const make = async (email) => {
+  var formdata = new FormData();
+
+  var request = {
+    method: "POST",
+    body: formdata,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Private-Network": "true",
+    },
+  };
+
+  const result = await fetch(url + "/make", request)
+    .then((response) => response.json())
+    .catch((e) => {
+      console.log("there was an error: ", e);
+    });
+  return result;
+};
