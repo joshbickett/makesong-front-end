@@ -28,6 +28,11 @@ const Home = () => {
         setTimeout(() => {
           setEmailSaved(false);
         }, 4000);
+      } else {
+        setErrorMessage("hmm, something went wrong");
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       }
     } else {
       setErrorMessage("Uh, that doesn't look like an email");
