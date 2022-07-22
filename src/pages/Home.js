@@ -24,10 +24,6 @@ const Home = () => {
       if (results?.success) {
         setEmailSaved(true);
         setErrorMessage("");
-
-        setTimeout(() => {
-          setEmailSaved(false);
-        }, 4000);
       } else {
         setErrorMessage("hmm, something went wrong");
         setTimeout(() => {
