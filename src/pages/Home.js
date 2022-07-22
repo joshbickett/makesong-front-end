@@ -19,9 +19,9 @@ const Home = () => {
   const save = async () => {
     // if email is formatted like an email address then save it
     if (email.includes("@")) {
-      const result = await saveEmail(email);
-      // console.log("result: ", result);
-      if (result?.success) {
+      const results = await saveEmail(email);
+      console.log("result: ", results);
+      if (results?.success) {
         setEmailSaved(true);
         setErrorMessage("");
 
@@ -57,7 +57,8 @@ const Home = () => {
 
   const makeSong = async () => {
     const results = await make();
-    if (result?.success) {
+    console.log("success");
+    if (results?.success) {
       console.log("results from making song: ", results);
     } else {
       setErrorMessage("hmm, something went wrong");

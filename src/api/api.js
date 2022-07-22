@@ -2,7 +2,7 @@
 // const url = "http://127.0.0.1:5000";
 
 // prod
-const url = "http://44.235.105.245";
+const url = "https://gpustuff.com";
 
 export const saveEmail = async (email) => {
   var formdata = new FormData();
