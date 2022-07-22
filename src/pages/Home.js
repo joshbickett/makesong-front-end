@@ -11,7 +11,8 @@ const Home = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [emailSaved, setEmailSaved] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
   const [showAccessView, setShowAccessView] = useState(false);
   const [showWaitlistView, setShowWaitlistView] = useState(false);
   const [accessGranted, setAccessGranted] = useState(false);
@@ -22,7 +23,9 @@ const Home = () => {
       const results = await saveEmail(email);
       console.log("result: ", results);
       if (results?.success) {
-        setEmailSaved(true);
+        setSuccessMessage(
+          "Your email has been saved! We will notify you when access is available"
+        );
         setErrorMessage("");
       } else {
         setErrorMessage("hmm, something went wrong");
@@ -53,9 +56,11 @@ const Home = () => {
 
   const makeSong = async () => {
     const results = await make();
-    console.log("success");
     if (results?.success) {
       console.log("results from making song: ", results);
+      setSuccessMessage(
+        "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
+      );
     } else {
       setErrorMessage("hmm, something went wrong");
       setTimeout(() => {
@@ -84,7 +89,7 @@ const Home = () => {
                 {errorMessage}
               </div>
             )}
-            {emailSaved && (
+            {!!successMessage && (
               <div
                 style={{
                   backgroundColor: "#d8ffd8",
@@ -93,12 +98,11 @@ const Home = () => {
                   borderRadius: "5px",
                 }}
               >
-                Your email has been saved! We will notify you when access is
-                available.
+                {successMessage}
               </div>
             )}
 
-            {showWaitlistView && !emailSaved && (
+            {showWaitlistView && !successMessage && (
               <div class="form-group">
                 <WaitlistInput
                   type="email"
@@ -110,7 +114,7 @@ const Home = () => {
               </div>
             )}
 
-            {showAccessView && !accessGranted && (
+            {showAccessView && !accessGranted && !successMessage && (
               <div class="form-group">
                 <AccessInput
                   type="email"
@@ -144,17 +148,17 @@ const Home = () => {
                 </StyledButton>
               </div>
             )}
-            {showWaitlistView && !emailSaved && (
+            {showWaitlistView && !successMessage && (
               <StyledButton onClick={() => save()}>JOIN WAITLIST</StyledButton>
             )}
 
-            {showAccessView && !accessGranted && (
+            {showAccessView && !accessGranted && !successMessage && (
               <StyledButton onClick={() => checkCode()}>
                 ENTER ACCESS CODE
               </StyledButton>
             )}
 
-            {accessGranted && (
+            {accessGranted && !successMessage && (
               <div
                 style={{
                   display: "flex",
