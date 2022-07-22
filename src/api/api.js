@@ -29,8 +29,9 @@ export const saveEmail = async (email) => {
   }
 };
 
-export const make = async (email) => {
+export const make = async (lyrics) => {
   var formdata = new FormData();
+  formdata.append("lyrics", lyrics);
 
   var request = {
     method: "POST",

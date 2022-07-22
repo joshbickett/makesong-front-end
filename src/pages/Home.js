@@ -10,6 +10,7 @@ const Home = () => {
 
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
+  const [lyrics, setLyrics] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -55,7 +56,7 @@ const Home = () => {
   };
 
   const makeSong = async () => {
-    const results = await make();
+    const results = await make(lyrics);
     console.log("results from making song: ", results);
     setSuccessMessage(
       "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
@@ -171,7 +172,10 @@ const Home = () => {
                 }}
               >
                 <div>Write your lyrics below!</div>
-                <LyricTextarea></LyricTextarea>
+                <LyricTextarea
+                  onChange={(e) => setLyrics(e.target.value)}
+                  value={lyrics}
+                ></LyricTextarea>
                 <StyledButton onClick={() => makeSong()}>
                   MAKE SONG
                 </StyledButton>
