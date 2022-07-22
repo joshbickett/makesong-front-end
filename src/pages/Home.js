@@ -56,17 +56,21 @@ const Home = () => {
 
   const makeSong = async () => {
     const results = await make();
-    if (results?.success) {
-      console.log("results from making song: ", results);
-      setSuccessMessage(
-        "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
-      );
-    } else {
-      setErrorMessage("hmm, something went wrong");
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 2000);
-    }
+    console.log("results from making song: ", results);
+    setSuccessMessage(
+      "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
+    );
+    // if (results?.success) {
+    //
+    //   setSuccessMessage(
+    //     "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
+    //   );
+    // } else {
+    //   // setErrorMessage("hmm, something went wrong");
+    //   // setTimeout(() => {
+    //   //   setErrorMessage("");
+    //   // }, 2000);
+    // }
   };
   return (
     <Container>
