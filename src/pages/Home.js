@@ -57,7 +57,14 @@ const Home = () => {
 
   const makeSong = async () => {
     const results = await make();
-    console.log("results from making song: ", results);
+    if (result?.success) {
+      console.log("results from making song: ", results);
+    } else {
+      setErrorMessage("hmm, something went wrong");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    }
   };
   return (
     <Container>
