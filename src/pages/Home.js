@@ -56,11 +56,12 @@ const Home = () => {
   };
 
   const makeSong = async () => {
-    const results = await make(lyrics);
-    console.log("results from making song: ", results);
     setSuccessMessage(
       "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
     );
+    const results = await make(lyrics);
+    console.log("results from making song: ", results);
+
     // if (results?.success) {
     //
     //   setSuccessMessage(
