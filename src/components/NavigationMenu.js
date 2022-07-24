@@ -5,7 +5,7 @@ import { LogoutButton } from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import "../App.css";
 
-const NavigationMenu = ({ currentPage }) => {
+export const NavigationMenu = ({ currentPage }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   // https://www.videezy.com/music-related/41219-music-equalizer-for-music-party
   // const [pages, setPages] = useState(p
@@ -61,8 +61,6 @@ const NavigationMenu = ({ currentPage }) => {
     </nav>
   );
 };
-
-export default NavigationMenu;
 
 const Brand = styled.div`
   font-size: 35px;

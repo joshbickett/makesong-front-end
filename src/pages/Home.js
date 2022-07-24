@@ -1,7 +1,8 @@
-import NavigationMenu from "../components/NavigationMenu";
+import { NavigationMenu } from "../components/NavigationMenu";
+import { MakeSong } from "../components/MakeSong";
 import styled from "@emotion/styled";
-import { saveEmail, make } from "../api/api";
-import { useEffect, useState } from "react";
+import { saveEmail } from "../api/api";
+import { useState } from "react";
 import { LoginButton } from "../components/LoginButton";
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
 
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
-  const [lyrics, setLyrics] = useState("");
+
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -55,32 +56,18 @@ const Home = () => {
     }
   };
 
-  const makeSong = async () => {
-    setSuccessMessage(
-      "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
-    );
-    const results = await make(lyrics);
-    console.log("results from making song: ", results);
-
-    // if (results?.success) {
-    //
-    //   setSuccessMessage(
-    //     "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
-    //   );
-    // } else {
-    //   // setErrorMessage("hmm, something went wrong");
-    //   // setTimeout(() => {
-    //   //   setErrorMessage("");
-    //   // }, 2000);
-    // }
-  };
   return (
     <Container>
       <NavigationMenu currentPage={"Home"} />
-      <div class="fluid-container">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
+      <div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div>
             <Title>Make a song using AI!</Title>
 
             {!!errorMessage && (
@@ -165,22 +152,7 @@ const Home = () => {
             )}
 
             {accessGranted && !successMessage && (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <div>Write your lyrics below!</div>
-                <LyricTextarea
-                  onChange={(e) => setLyrics(e.target.value)}
-                  value={lyrics}
-                ></LyricTextarea>
-                <StyledButton onClick={() => makeSong()}>
-                  MAKE SONG
-                </StyledButton>
-              </div>
+              <MakeSong setSuccessMessage={setSuccessMessage} />
             )}
             {/* <LoginButton /> */}
 
@@ -193,7 +165,6 @@ const Home = () => {
               </video>
             </AnimationContainer>
           </div>
-          <div class="col-md-3"></div>
         </div>
       </div>
       <div class="row">
@@ -256,17 +227,6 @@ const WaitlistInput = styled.input`
   text-align: center;
   margin: 20px;
   border: 1px solid #373737;
-`;
-
-const LyricTextarea = styled.textarea`
-  border-radius: 5px;
-  margin: 10px;
-  resize: none;
-  width: 400px;
-  height: 300px;
-  text-align: center;
-  background-color: #373737;
-  color: white;
 `;
 
 const AccessInput = styled.input`
