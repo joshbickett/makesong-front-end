@@ -68,7 +68,7 @@ const Home = () => {
           }}
         >
           <div>
-            <Title>Make a song using AI!</Title>
+            <Title>Make a song sample using AI!</Title>
 
             {!!errorMessage && (
               <div

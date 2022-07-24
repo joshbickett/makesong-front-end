@@ -31,6 +31,23 @@ export const MakeSong = ({ setSuccessMessage }) => {
         alignItems: "center",
       }}
     >
+      <div>Choose artist to model your song after</div>
+      <select
+        name="artist"
+        id="artist"
+        style={{ margin: "10px", backgroundColor: "black", color: "white" }}
+      >
+        <option value="The Beatles"> The Beatles</option>
+        <option value="Frank Sinatra">Frank Sinatra</option>
+        <option value="Beyoncé">Beyoncé</option>
+        <option value="Elton John">Elton John</option>
+        <option value="Nas">Nas</option>
+        <option value="Dolly Parton">Dolly Parton</option>
+        <option value="Nicki Minaj">Nicki Minaj</option>
+        <option value="Enrique Iglesias">Enrique Iglesias</option>
+        <option value="Ella Fitzgerald">Ella Fitzgerald</option>
+      </select>
+
       <div>Write your lyrics below!</div>
       <LyricTextarea
         onChange={(e) => setLyrics(e.target.value)}
