@@ -29,9 +29,13 @@ export const saveEmail = async (email) => {
   }
 };
 
-export const make = async (lyrics) => {
+export const make = async ({ lyrics, artist, genre }) => {
   var formdata = new FormData();
   formdata.append("lyrics", lyrics);
+  formdata.append("artist", artist);
+  formdata.append("genre", genre);
+  console.log("artist", artist);
+  console.log("genre", genre);
 
   var request = {
     method: "POST",

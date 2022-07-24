@@ -4,12 +4,28 @@ import styled from "@emotion/styled";
 
 export const MakeSong = ({ setSuccessMessage }) => {
   const [lyrics, setLyrics] = useState("");
+  const [artist, setArtist] = useState("The Beatles");
+
+  const genreLookup = {
+    "The Beatles": "Rock",
+    "Frank Sinatra": "Classic Pop",
+    "Beyoncé": "R&B",
+    "Elton John": "	Pop Rock",
+    "Nas": "Hip Hop",
+    "Dolly Parton": "Country",
+    "Nicki Minaj": "Hip Hop",
+    "Enrique Iglesias": "Pop",
+    "Ella Fitzgerald": "Jazz",
+  };
+
   const makeSong = async () => {
     setSuccessMessage(
       "Your song was submitted and the AI is working on it! We'll notify you by email once complete"
     );
-    const results = await make(lyrics);
+    const genre = genreLookup[artist];
+    const results = await make({ lyrics, artist: artist, genre: genre });
     console.log("results from making song: ", results);
+
 
     // if (results?.success) {
     //
@@ -35,6 +51,7 @@ export const MakeSong = ({ setSuccessMessage }) => {
       <select
         name="artist"
         id="artist"
+        onChange={(e) => setArtist(e.target.value)}
         style={{ margin: "10px", backgroundColor: "black", color: "white" }}
       >
         <option value="The Beatles"> The Beatles</option>
