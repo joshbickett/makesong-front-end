@@ -1,21 +1,20 @@
 import { make } from "../api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 export const MakeSong = ({ setSuccessMessage }) => {
   const [lyrics, setLyrics] = useState("");
+
   const [artist, setArtist] = useState("The Beatles");
 
   const genreLookup = {
     "The Beatles": "Rock",
     "Frank Sinatra": "Classic Pop",
-    "Beyoncé": "R&B",
+    "Ella Fitzgerald": "Jazz",
     "Elton John": "	Pop Rock",
-    "Nas": "Hip Hop",
     "Dolly Parton": "Country",
     "Nicki Minaj": "Hip Hop",
     "Enrique Iglesias": "Pop",
-    "Ella Fitzgerald": "Jazz",
   };
 
   const makeSong = async () => {
@@ -25,7 +24,6 @@ export const MakeSong = ({ setSuccessMessage }) => {
     const genre = genreLookup[artist];
     const results = await make({ lyrics, artist: artist, genre: genre });
     console.log("results from making song: ", results);
-
 
     // if (results?.success) {
     //
@@ -39,6 +37,7 @@ export const MakeSong = ({ setSuccessMessage }) => {
     //   // }, 2000);
     // }
   };
+
   return (
     <div
       style={{
@@ -56,9 +55,7 @@ export const MakeSong = ({ setSuccessMessage }) => {
       >
         <option value="The Beatles"> The Beatles</option>
         <option value="Frank Sinatra">Frank Sinatra</option>
-        <option value="Beyoncé">Beyoncé</option>
         <option value="Elton John">Elton John</option>
-        <option value="Nas">Nas</option>
         <option value="Dolly Parton">Dolly Parton</option>
         <option value="Nicki Minaj">Nicki Minaj</option>
         <option value="Enrique Iglesias">Enrique Iglesias</option>
@@ -69,7 +66,9 @@ export const MakeSong = ({ setSuccessMessage }) => {
       <LyricTextarea
         onChange={(e) => setLyrics(e.target.value)}
         value={lyrics}
+        maxLength="100"
       ></LyricTextarea>
+      <div>{lyrics.length}/100</div>
       <StyledButton onClick={() => makeSong()}>MAKE SONG</StyledButton>
     </div>
   );
@@ -91,6 +90,7 @@ const StyledButton = styled.button`
   width: 200px;
   font-size: 16px;
   border-radius: 5px;
+  margin: 10px 0;
 
   border: 0;
   font-weight: bold;
