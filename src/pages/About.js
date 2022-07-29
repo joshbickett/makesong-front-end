@@ -16,7 +16,7 @@ const About = () => {
         <div>
           <Title>
             Makesong.ai is a fork of{" "}
-            <a href="https://github.com/openai/jukebox/">Jukebox</a>
+            <a href="https://github.com/joshbickett/jukebox">Jukebox</a>
           </Title>
           <AnimationContainer>
             <video width="400" height="300" autoPlay loop muted>
