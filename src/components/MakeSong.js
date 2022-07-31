@@ -66,9 +66,9 @@ export const MakeSong = ({ setSuccessMessage }) => {
       <LyricTextarea
         onChange={(e) => setLyrics(e.target.value)}
         value={lyrics}
-        maxLength="100"
+        maxLength="150"
       ></LyricTextarea>
-      <div>{lyrics.length}/100</div>
+      <div>{lyrics.length}/150</div>
       <StyledButton onClick={() => makeSong()}>MAKE SONG</StyledButton>
     </div>
   );
