@@ -75,6 +75,6 @@ const Attribution = styled.div`
   margin: 10px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin-top: 150px;
 `;
