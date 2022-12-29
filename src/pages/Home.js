@@ -127,7 +127,7 @@ const Home = () => {
                   flexDirection: "column",
                 }}
               >
-                <StyledButton
+                {/* <StyledButton
                   style={{ margin: "10px" }}
                   onClick={() => setShowWaitlistView(true)}
                 >
@@ -138,7 +138,11 @@ const Home = () => {
                   onClick={() => setShowAccessView(true)}
                 >
                   ENTER ACCESS CODE
-                </StyledButton>
+                </StyledButton> */}
+                <SubTitle>
+                  This project is in progress. If you want to help, reach out to
+                  me on <a href="https://twitter.com/josh_bickett">Twitter</a>.
+                </SubTitle>
               </div>
             )}
             {showWaitlistView && !successMessage && (
@@ -209,8 +213,12 @@ const Attribution = styled.div`
   margin: 10px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin-top: 150px;
+`;
+
+const SubTitle = styled.h6`
+  margin-top: 50px;
 `;
 
 const WaitlistInput = styled.input`
